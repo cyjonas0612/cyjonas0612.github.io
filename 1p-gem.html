@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>磊伯｜企業勞動法實務顧問</title>
+    <meta name="description" content="磊伯勞資充電站：協助企業主把勞動法問題，在還沒變成爭議或被罰之前，先處理好。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 核心變數設定 (根據 Logo 調整) --- */
+        :root {
+            --primary-red: #b01f24;   /* Logo 深紅色：熱情、行動力、專業 */
+            --text-on-red: #ffffff;   /* 紅底上的白字 */
+            --bg-color: #f8f9fa;      /* 整體背景灰白 */
+            --card-bg: #ffffff;       /* 卡片白 */
+            --text-main: #333333;     /* 主要文字黑 */
+            --text-light: #666666;    /* 次要文字深灰 */
+            --highlight-bg: #fff0f0;  /* 強調區塊底色 (極淡的紅) */
+        }
+
+        /* --- 基礎重置 --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- 主要容器 --- */
+        .container {
+            max-width: 600px; 
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 25px rgba(176, 31, 36, 0.1); /* 陰影帶一點點紅 */
+            min-height: 100vh;
+        }
+
+        /* --- 頁首 (Header) - 紅底白字 --- */
+        header {
+            background-color: var(--primary-red);
+            color: var(--text-on-red);
+            padding: 45px 25px;
+            text-align: center;
+            /* 增加一個微微的漸層，提升質感 */
+            background: linear-gradient(135deg, #b01f24 0%, #911a1e 100%);
+        }
+        header h1 {
+            font-size: 2rem; /* 加大字體，呼應 Logo 的氣勢 */
+            font-weight: 900; /* 使用最粗體 */
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        header .subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        /* 模擬 Logo 中的閃電元素，裝飾在標題旁 (選擇性) */
+        header h1::after {
+            content: '⚡';
+            font-size: 1.2rem;
+            margin-left: 5px;
+            color: #fff;
+            vertical-align: text-top;
+        }
+
+        /* --- 通用區塊 --- */
+        section {
+            padding: 40px 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary-red);
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 18px;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+        /* 標題旁的裝飾條改成紅色 */
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 6px;
+            background-color: var(--primary-red);
+            border-radius: 3px;
+        }
+
+        p { margin-bottom: 18px; text-align: justify; }
+
+        /* --- 英雄區塊 (Hero) --- */
+        .hero { text-align: center; padding: 50px 30px; }
+        .hero p { text-align: center; font-size: 1.2rem; font-weight: 500; color: var(--text-main); }
+        /* 強調文字的背景改成淡淡的紅色螢光筆效果 */
+        .hero .highlight {
+            color: var(--primary-red);
+            font-weight: 900;
+            background: linear-gradient(120deg, transparent 50%, rgba(176, 31, 36, 0.15) 50%);
+        }
+
+        /* --- 列表樣式 (將打勾換成閃電) --- */
+        .check-list { list-style: none; }
+        .check-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 18px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+        /* 使用閃電符號，並用紅色強調 */
+        .check-list li::before {
+            content: '⚡'; 
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary-red);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* --- 引言框 --- */
+        .quote-box {
+            background-color: var(--highlight-bg); /* 淡紅背景 */
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-weight: 700;
+            color: var(--primary-red);
+            border-left: 6px solid var(--primary-red);
+            box-shadow: 0 2px 10px rgba(176, 31, 36, 0.05);
+        }
+        .quote-box p { margin-bottom: 8px; text-align: left; }
+        .quote-box p:last-child { margin-bottom: 0; }
+
+        /* --- 服務項目 --- */
+        .service-item { margin-bottom: 28px; }
+        .service-item strong {
+            display: flex;
+            align-items: center;
+            color: var(--primary-red);
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        /* 在服務標題前也加個小閃電裝飾 */
+        .service-item strong::before {
+            content: '⚡';
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+
+        .service-footer {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 2px dashed rgba(176, 31, 36, 0.2); /* 紅色虛線 */
+            font-weight: 700;
+            text-align: center;
+            color: var(--primary-red);
+            font-size: 1.1rem;
+        }
+
+        /* --- 工作方式 (強調區塊) --- */
+        .methodology-section {
+            background-color: var(--highlight-bg); /* 淡紅背景 */
+        }
+        .methodology-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.9;
+            color: var(--primary-red);
+        }
+        /* 分隔線改成紅色 */
+        .divider-red {
+            width: 50px; height: 2px; background: var(--primary-red); margin: 25px auto; opacity: 0.3;
+        }
+        .bold { font-weight: 900; font-size: 1.2rem; }
+
+        /* --- 聯絡區塊 (CTA) --- */
+        .cta-section {
+            text-align: center;
+            background-color: #fff;
+            padding-bottom: 80px;
+            padding-top: 50px;
+        }
+        .cta-text {
+            color: var(--text-light);
+            margin-bottom: 35px;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+        /* LINE 按鈕保留綠色 (品牌識別)，但加入一點紅色陰影讓它融合 */
+        .btn-line {
+            background-color: #06c755;
+            color: white;
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+        /* Email 按鈕改成紅框紅字 */
+        .btn-email {
+            background-color: white;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+            box-shadow: 0 4px 15px rgba(176, 31, 36, 0.1);
+        }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-email:hover { background-color: var(--highlight-bg); }
+        
+        .footer-note {
+            margin-top: 45px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>磊伯</h1>
+            <div class="subtitle">勞資充電站｜企業勞動法實務顧問</div>
+        </header>
+
+        <section class="hero">
+            <p>我協助企業主，<br>把勞動法問題，<br>在還沒變成爭議或被罰之前，<br><span class="highlight">先處理好</span>。</p>
+            <br>
+            <p style="font-size: 1rem; color: #666; font-weight: 400;">不是等事情發生後補救，<br>而是提前把風險降下來。</p>
+        </section>
+
+        <section>
+            <h2>什麼情況下，會需要我？</h2>
+            <ul class="check-list">
+                <li>公司規模慢慢變大，發現以前的做法好像開始有風險</li>
+                <li>想調整人事、資遣或制度，但不確定怎麼做才安全</li>
+                <li>員工開始質疑制度合法性，主管卻說不清楚</li>
+                <li>勞檢快來了，心裡知道制度「好像不太完整」</li>
+                <li>不是不想守法，而是沒人把法規講成企業聽得懂的版本</li>
+            </ul>
+            
+            <div class="quote-box">
+                <p>👉 多數企業不是故意違規</p>
+                <p>👉 而是「不知道哪裡要先處理」</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>我實際在協助企業做的事</h2>
+            <p style="font-size: 0.95rem; color: #888; margin-bottom: 30px; text-align: center;">（白話、不是法條）</p>
+            
+            <div class="service-item">
+                <strong>制度落地化</strong>
+                把複雜的勞動法規，轉成企業真的做得到的制度與流程。
+            </div>
+            
+            <div class="service-item">
+                <strong>風險精準打擊</strong>
+                協助企業主找出「最容易出事、最該先處理」的風險點。
+            </div>
+
+            <div class="service-item">
+                <strong>爭議當下穩盤</strong>
+                在勞資爭議或勞檢發生時，幫企業把局面穩住，而不是臨時亂補。
+            </div>
+
+            <div class="service-footer">
+                我關心的不是「有沒有寫文件」，<br>
+                而是這套制度<br>
+                能不能真的用、會不會出事。
+            </div>
+        </section>
+
+        <section class="methodology-section">
+            <div class="methodology-text">
+                <p>我的工作方式，<br>跟你想的不太一樣</p>
+                <div class="divider-red"></div>
+                <p style="font-weight: 400; font-size: 1.05rem; color: var(--text-main);">
+                    我不只告訴你「這樣不行」，<br>
+                    而是陪你找到<br><span class="bold">「那可以怎麼做」</span>。
+                </p>
+                <br>
+                <p style="font-weight: 400; font-size: 1.05rem; color: var(--text-main);">
+                    站在企業的角度，<br>
+                    用你聽得懂、做得到的方式，<br>
+                    把風險一個一個拆掉。
+                </p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 style="margin-bottom: 15px;">如果你或朋友遇到相關狀況</h2>
+            <p class="cta-text">這一頁留著就好，<br>需要的時候再找我聊聊。</p>
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-line" target="_blank">加入我的 LINE</a>
+                <a href="mailto:your-email@example.com" class="btn btn-email">寄信給我</a>
+            </div>
+
+            <p class="footer-note">（也可以請你直接把這頁轉給需要的人）</p>
+        </section>
+    </div>
+
+</body>
+</html>
