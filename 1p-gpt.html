@@ -3,108 +3,453 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>磊伯｜企業勞動法實務顧問</title>
-  <meta name="description" content="商會交流與電子名片共用的一頁式服務說明：協助企業主把勞動法風險在還沒變成爭議或被罰之前先處理好。" />
+  <title>磊伯｜勞資充電站｜企業勞動法實務顧問</title>
+  <meta name="description" content="商會交流 × 電子名片共用｜一頁式服務說明（手機優先、可直接截圖）" />
+  <meta name="theme-color" content="#A10F15" />
 
   <style>
+    :root{
+      /* === Brand (依你的 Logo 紅白系) === */
+      --brand: #A10F15;   /* 主紅 */
+      --brand2:#C0181F;   /* 亮紅 */
+      --brand3:#7E0B10;   /* 深紅 */
+      --ink:   #140405;   /* 深色字/陰影 */
+      --paper: #FFFFFF;   /* 白 */
+
+      /* UI */
+      --txt: rgba(255,255,255,.94);
+      --muted: rgba(255,255,255,.76);
+      --muted2: rgba(255,255,255,.62);
+      --stroke: rgba(255,255,255,.16);
+      --stroke2: rgba(255,255,255,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.40);
+      --r: 22px;
+      --max: 980px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
-      "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
-      background:#0b1220;
-      color:#fff;
-      line-height:1.7;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                   "Noto Sans TC","PingFang TC","Microsoft JhengHei", Arial, sans-serif;
+      color: var(--txt);
+      line-height: 1.65;
+      letter-spacing: .2px;
+
+      /* 主背景：紅系漸層 + 光暈 */
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(255,255,255,.12), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(255,255,255,.08), transparent 55%),
+        radial-gradient(1100px 800px at 55% 95%, rgba(0,0,0,.22), transparent 60%),
+        linear-gradient(180deg, var(--brand3), var(--brand));
     }
-    .wrap{max-width:920px;margin:auto;padding:24px}
-    h1,h2,h3{margin-top:0}
-    .card{
-      background:rgba(255,255,255,.06);
-      border-radius:18px;
-      padding:20px;
-      margin-bottom:16px;
+
+    a{color:inherit}
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 72px;
     }
-    .tag{
-      display:inline-block;
-      border:1px solid rgba(255,255,255,.2);
-      border-radius:999px;
-      padding:6px 12px;
+
+    /* Header */
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin: 10px 0 18px;
+    }
+    .brandRow{display:flex; gap:12px; align-items:center; min-width:0}
+    .mark{
+      width:48px;height:48px;border-radius:16px;
+      background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.10));
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 14px 30px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+      position:relative; overflow:hidden;
+    }
+    .mark svg{width:26px;height:26px; opacity:.95}
+    .name{min-width:0}
+    .name h1{
+      margin:0;
+      font-size:18px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      letter-spacing:.4px;
+    }
+    .name p{
+      margin:3px 0 0;
       font-size:13px;
-      margin-right:6px;
+      color: var(--muted2);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .badge{
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(255,255,255,.90);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      white-space:nowrap;
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      border:1px solid rgba(255,255,255,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 26px 22px;
+      overflow:hidden;
+    }
+
+    /* Logo風格的「閃電＋環」水印（純CSS，不用圖檔） */
+    .hero::before{
+      content:"";
+      position:absolute;
+      width: 520px; height: 520px;
+      right: -160px; top: -120px;
+      opacity: .16;
+      background:
+        radial-gradient(circle at 50% 50%, transparent 46%, rgba(255,255,255,.9) 47%, rgba(255,255,255,.9) 49%, transparent 50%) ,
+        radial-gradient(circle at 50% 50%, transparent 62%, rgba(255,255,255,.7) 63%, rgba(255,255,255,.7) 64%, transparent 65%);
+      border-radius: 50%;
+      filter: blur(.2px);
+      pointer-events:none;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      right: -40px; top: -20px;
+      width: 320px; height: 520px;
+      opacity:.18;
+      background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(255,255,255,.65));
+      clip-path: polygon(55% 0%, 90% 0%, 60% 38%, 78% 38%, 20% 100%, 42% 54%, 24% 54%);
+      transform: rotate(8deg);
+      pointer-events:none;
+    }
+
+    .heroGrid{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.45fr .55fr;
+      gap: 16px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .heroGrid{grid-template-columns:1fr}
+      .badge{display:none}
+    }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      color: rgba(255,255,255,.86);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: #fff;
+      box-shadow: 0 0 0 6px rgba(255,255,255,.10);
+    }
+    .hero h2{
+      margin:0 0 10px;
+      font-size: 30px;
+      line-height:1.18;
+      letter-spacing:.4px;
+    }
+    .lead{
+      margin:0;
+      color: rgba(255,255,255,.86);
+      font-size: 15px;
+    }
+
+    .panel{
+      margin-top: 16px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.12);
+      border-radius: 18px;
+      padding: 14px 14px;
+    }
+    .panel strong{display:block; font-size: 14px; margin-bottom:6px}
+    .panel p{margin:0; color: var(--muted); font-size: 14px}
+
+    .cta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 16px;
     }
     .btn{
-      display:inline-block;
-      margin:6px 6px 0 0;
-      padding:10px 16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.3);
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 11px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
       text-decoration:none;
-      color:#fff;
+      color: var(--paper);
+      font-size: 14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.34);
+      background: rgba(255,255,255,.14);
     }
     .btn.primary{
-      background:rgba(125,211,252,.25);
-      border-color:rgba(125,211,252,.6);
+      border-color: rgba(255,255,255,.30);
+      background: linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.12));
+      box-shadow: 0 10px 28px rgba(0,0,0,.20);
     }
-    footer{font-size:12px;color:rgba(255,255,255,.6);text-align:center}
+    .btn.ghost{
+      background: rgba(0,0,0,.10);
+    }
+
+    .side{
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.10);
+      border-radius: 18px;
+      padding: 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .sideTitle{
+      font-size: 12px;
+      color: rgba(255,255,255,.70);
+      letter-spacing:.35px;
+      text-transform: uppercase;
+      margin:0;
+    }
+    .miniCards{display:grid; gap:10px}
+    .mini{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 12px 12px;
+    }
+    .mini .t{display:flex; align-items:center; gap:10px; font-size: 13px; color: var(--txt)}
+    .ico{
+      width:28px;height:28px;border-radius:12px;
+      display:grid;place-items:center;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      font-size: 15px;
+    }
+    .mini p{margin:8px 0 0; color: var(--muted); font-size: 13px}
+
+    /* Content cards */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 860px){ .grid{grid-template-columns:1fr} }
+    .card{
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.10);
+      border-radius: var(--r);
+      padding: 18px 18px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing:.2px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .chip{
+      width:28px;height:28px;border-radius:12px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      display:grid; place-items:center;
+      font-size: 14px;
+    }
+    .sub{margin:0 0 12px; color: var(--muted2); font-size: 13px}
+
+    .list{margin:0; padding:0; list-style:none; display:grid; gap:10px}
+    .li{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      border-radius: 18px;
+      padding: 12px 12px;
+      display:flex; gap:10px;
+      align-items:flex-start;
+    }
+    .li .b{
+      width:30px;height:30px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.10);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+      margin-top:1px;
+      font-weight:800;
+      color: rgba(255,255,255,.92);
+    }
+    .li .t{margin:0; color: rgba(255,255,255,.82); font-size: 14px}
+
+    .callout{
+      margin-top: 12px;
+      border:1px solid rgba(255,255,255,.22);
+      background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(0,0,0,.08));
+      border-radius: var(--r);
+      padding: 16px 16px;
+    }
+    .callout strong{
+      display:block;
+      font-size: 16px;
+      line-height:1.45;
+      letter-spacing:.3px;
+    }
+    .callout span{
+      display:block;
+      margin-top: 8px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+    }
+
+    /* Contact */
+    .contact{
+      margin-top: 14px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.10);
+      border-radius: var(--r);
+      padding: 18px 18px;
+    }
+    .contact h3{margin:0 0 10px; font-size: 16px}
+    .contact p{margin:0 0 12px; color: rgba(255,255,255,.82); font-size: 14px}
+
+    footer{
+      margin-top: 18px;
+      color: rgba(255,255,255,.65);
+      font-size: 12px;
+      text-align:center;
+    }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-
-    <div class="card">
-      <h1>磊伯｜企業勞動法實務顧問</h1>
-      <p>
-        <strong>我協助企業主，</strong><br>
-        把勞動法問題，<br>
-        在還沒變成爭議或被罰之前，先處理好。
-      </p>
-
-      <a class="btn primary" href="#">➕ 加 LINE（TODO）</a>
-      <a class="btn" href="mailto:your@email.com">📧 Email</a>
-
-      <div style="margin-top:12px">
-        <span class="tag">企業主好理解</span>
-        <span class="tag">專業不疏離</span>
-        <span class="tag">商會 / 電子名片適用</span>
+  <main class="wrap">
+    <header class="top">
+      <div class="brandRow">
+        <div class="mark" aria-hidden="true">
+          <!-- 閃電 icon（呼應 Logo 元素） -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M13 2L4 14h7l-1 8 10-14h-7l0-6z" fill="white" opacity=".95"/>
+          </svg>
+        </div>
+        <div class="name">
+          <h1>磊伯｜勞資充電站</h1>
+          <p>商會交流 × 電子名片共用｜一頁式服務說明（紅白品牌版）</p>
+        </div>
       </div>
-    </div>
+      <div class="badge">專業但不疏離｜讓對方 30 秒看懂你在做什麼</div>
+    </header>
 
-    <div class="card">
-      <h3>什麼情況下，會需要我？</h3>
-      <ul>
-        <li>公司成長後，發現制度開始有風險</li>
-        <li>想調整人事，卻不知道怎麼做才安全</li>
-        <li>員工開始質疑制度是否合法</li>
-        <li>勞檢快來了，但心裡很不踏實</li>
-      </ul>
-    </div>
+    <section class="hero" aria-label="Hero">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker"><span class="dot"></span><span>給企業主的「快速理解型」介紹頁</span></div>
+          <h2>勞動法不是成本，<br>是風險管理工具</h2>
 
-    <div class="card">
-      <h3>我實際在協助企業做的事</h3>
-      <ul>
-        <li>把法規翻成企業做得到的制度</li>
-        <li>找出最容易出事的關鍵風險點</li>
-        <li>在勞檢或爭議時，協助企業穩住局面</li>
-      </ul>
+          <p class="lead">
+            <strong>我協助企業主，</strong>
+            把勞動法問題，<br>
+            在還沒變成爭議或被罰之前，先處理好。
+          </p>
 
-      <p><strong>
-        我不只告訴你「這樣不行」，<br>
-        而是陪你找到「那可以怎麼做」。
-      </strong></p>
-    </div>
+          <div class="panel">
+            <strong>一句話你可以這樣介紹我</strong>
+            <p>「我找他不是為了背法條，<br>是為了把制度做得能用、也不會出事。」</p>
+          </div>
 
-    <div class="card">
-      <h3>聯絡方式</h3>
-      <a class="btn primary" href="#">📱 LINE（TODO）</a>
-      <a class="btn" href="mailto:your@email.com">📧 your@email.com</a>
-      <a class="btn" href="tel:+886900000000">☎️ 0900-000-000</a>
-    </div>
+          <div class="cta" role="group" aria-label="聯絡按鈕">
+            <!-- TODO：把 href 換成你的 LINE/LIFF/官方帳號連結 -->
+            <a class="btn primary" href="#" title="加入 LINE">⚡ 加 LINE（聊聊狀況）</a>
+            <a class="btn ghost" href="mailto:your@email.com" title="寄 Email">✉️ Email</a>
+            <a class="btn ghost" href="#contact" title="聯絡方式">☎️ 聯絡方式</a>
+          </div>
+        </div>
+
+        <aside class="side" aria-label="快速理解">
+          <p class="sideTitle">你可能正在面對</p>
+
+          <div class="miniCards">
+            <div class="mini">
+              <div class="t"><span class="ico">🧩</span><strong>制度開始不夠用</strong></div>
+              <p>公司變大後，過去做法開始「有風險」。</p>
+            </div>
+            <div class="mini">
+              <div class="t"><span class="ico">⚠️</span><strong>調整人事很焦慮</strong></div>
+              <p>想資遣/調整制度，但怕踩雷。</p>
+            </div>
+            <div class="mini">
+              <div class="t"><span class="ico">🔎</span><strong>勞檢前心裡沒底</strong></div>
+              <p>不是不想守法，而是不知道先改哪裡。</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="內容區塊">
+      <div class="card">
+        <h3><span class="chip">🎯</span>什麼情況下，會需要我？</h3>
+        <p class="sub">（企業主最常見的「對號入座」情境）</p>
+
+        <ul class="list">
+          <li class="li"><div class="b">1</div><p class="t">公司規模慢慢變大，發現以前的做法開始有風險。</p></li>
+          <li class="li"><div class="b">2</div><p class="t">想調整人事、資遣或制度，但不確定怎麼做才安全。</p></li>
+          <li class="li"><div class="b">3</div><p class="t">員工開始質疑制度合法性，主管卻說不清楚。</p></li>
+          <li class="li"><div class="b">4</div><p class="t">勞檢快來了，但心裡知道制度「好像不太完整」。</p></li>
+          <li class="li"><div class="b">5</div><p class="t">不是不想守法，而是沒人把法規翻成企業聽得懂的版本。</p></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="chip">🛠️</span>我實際在協助企業做的事</h3>
+        <p class="sub">（白話、不是法條堆疊）</p>
+
+        <ul class="list">
+          <li class="li"><div class="b">⚙️</div><p class="t">把複雜規範轉成<strong>企業做得到</strong>的制度與流程。</p></li>
+          <li class="li"><div class="b">🧭</div><p class="t">協助找出「最容易出事、最該先處理」的<strong>風險點</strong>。</p></li>
+          <li class="li"><div class="b">🧯</div><p class="t">勞資爭議或勞檢發生時，協助企業<strong>穩住局面</strong>，避免臨時亂補。</p></li>
+        </ul>
+
+        <div class="callout">
+          <strong>我不只告訴你「這樣不行」，<br>而是陪你找到「那可以怎麼做」。</strong>
+          <span>站在企業角度，用你聽得懂、做得到的方式，把風險一個一個拆掉。</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-label="聯絡方式">
+      <h3>📌 聯絡我</h3>
+      <p>這一頁留著就好，需要的時候再找我聊聊，也歡迎你轉給需要的人。</p>
+
+      <div class="cta" role="group" aria-label="聯絡按鈕">
+        <!-- TODO：把 href 換成你的 LINE/LIFF/官方帳號連結 -->
+        <a class="btn primary" href="#" title="加入 LINE">⚡ LINE：點我加入/私訊</a>
+        <a class="btn ghost" href="mailto:your@email.com" title="Email">✉️ your@email.com</a>
+        <a class="btn ghost" href="tel:+886900000000" title="電話">☎️ 0900-000-000</a>
+      </div>
+
+      <p style="margin-top:12px;color:rgba(255,255,255,.70);font-size:12px">
+        ✅ 只要把「LINE 連結 / Email / 電話」換成你的實際資訊就能上線。<br>
+        ✅ 若你要截圖當圖片：用手機全螢幕滑動截圖，這版已做成「分區卡片＋水印」很適合分享。
+      </p>
+    </section>
 
     <footer>
-      © 磊伯｜企業勞動法實務顧問<br>
-      本頁適合商會交流與電子名片使用
+      © <span id="y"></span> 磊伯｜勞資充電站
     </footer>
+  </main>
 
-  </div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
