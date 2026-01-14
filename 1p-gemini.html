@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>磊伯｜企業勞動法實務顧問</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0f2e4a; /* 深海藍：專業、穩重 */
+            --accent-color: #c9a256;  /* 金色點綴：質感 */
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --highlight-bg: #eef2f5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 600px; /* 模擬手機/卡片寬度 */
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        header .subtitle {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 400;
+        }
+
+        /* Sections General */
+        section {
+            padding: 30px 25px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 30px;
+        }
+        
+        .hero p {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .hero .highlight {
+            color: var(--primary-color);
+            font-weight: 700;
+            background: linear-gradient(120deg, transparent 60%, rgba(201, 162, 86, 0.2) 60%);
+        }
+
+        /* List Styling */
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background-color: var(--highlight-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .quote-box p {
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Services */
+        .service-item {
+            margin-bottom: 20px;
+        }
+        .service-item strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+        .service-footer {
+            margin-top: 20px;
+            font-weight: 700;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        /* Methodology */
+        .methodology-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.8;
+            color: var(--primary-color);
+        }
+
+        /* Contact / CTA */
+        .cta-section {
+            text-align: center;
+            background-color: #fafafa;
+            padding-bottom: 60px;
+            border-bottom: none;
+        }
+        
+        .cta-text {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-line {
+            background-color: #06c755;
+            color: white;
+            box-shadow: 0 4px 10px rgba(6, 199, 85, 0.2);
+        }
+
+        .btn-email {
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid #ddd;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Utility for Bolding specific parts */
+        .bold { font-weight: 700; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>磊伯</h1>
+            <div class="subtitle">企業勞動法實務顧問</div>
+        </header>
+
+        <section class="hero">
+            <p>我協助企業主，<br>把勞動法問題，<br>在還沒變成爭議或被罰之前，<span class="highlight">先處理好</span>。</p>
+            <br>
+            <p style="font-size: 0.95rem; color: #555;">不是等事情發生後補救，<br>而是提前把風險降下來。</p>
+        </section>
+
+        <section>
+            <h2>什麼情況下，會需要我？</h2>
+            <ul class="check-list">
+                <li>公司規模慢慢變大，發現以前的做法好像開始有風險</li>
+                <li>想調整人事、資遣或制度，但不確定怎麼做才安全</li>
+                <li>員工開始質疑制度合法性，主管卻說不清楚</li>
+                <li>勞檢快來了，心裡知道制度「好像不太完整」</li>
+                <li>不是不想守法，而是沒人把法規講成企業聽得懂的版本</li>
+            </ul>
+            
+            <div class="quote-box">
+                <p>👉 多數企業不是故意違規</p>
+                <p>👉 而是「不知道哪裡要先處理」</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>我實際在協助企業做的事</h2>
+            <p style="font-size: 0.9rem; color: #888; margin-bottom: 20px;">（白話、不是法條）</p>
+            
+            <div class="service-item">
+                <strong>制度落地化</strong>
+                把複雜的勞動法規，轉成企業真的做得到的制度與流程。
+            </div>
+            
+            <div class="service-item">
+                <strong>風險精準打擊</strong>
+                協助企業主找出「最容易出事、最該先處理」的風險點。
+            </div>
+
+            <div class="service-item">
+                <strong>爭議當下穩盤</strong>
+                在勞資爭議或勞檢發生時，幫企業把局面穩住，而不是臨時亂補。
+            </div>
+
+            <div class="service-footer">
+                我關心的不是「有沒有寫文件」，<br>
+                而是這套制度<br>
+                能不能真的用、會不會出事。
+            </div>
+        </section>
+
+        <section style="background-color: var(--highlight-bg);">
+            <div class="methodology-text">
+                <p>我的工作方式，<br>跟你想的不太一樣</p>
+                <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 15px auto; width: 40px;">
+                <p style="font-weight: 400; font-size: 1rem; color: var(--text-main);">
+                    我不只告訴你「這樣不行」，<br>
+                    而是陪你找到<span class="bold">「那可以怎麼做」</span>。
+                </p>
+                <br>
+                <p style="font-weight: 400; font-size: 1rem; color: var(--text-main);">
+                    站在企業的角度，<br>
+                    用你聽得懂、做得到的方式，<br>
+                    把風險一個一個拆掉。
+                </p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>如果你或朋友遇到相關狀況</h2>
+            <p class="cta-text">這一頁留著就好，<br>需要的時候再找我聊聊。</p>
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-line">加我的 LINE</a>
+                <a href="mailto:your-email@example.com" class="btn btn-email">寄信給我</a>
+            </div>
+
+            <p class="footer-note">（也可以請你直接把這頁轉給需要的人）</p>
+        </section>
+    </div>
+
+</body>
+</html>
