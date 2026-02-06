@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>磊伯勞資充電站｜陳晏綜</title>
+    <title>陳晏綜｜磊伯勞資充電站</title>
     <meta name="description" content="權宇勞基顧問有限公司 陳晏綜經理 - 勞資爭議預防、職業災害風險管理、企業法遵顧問。">
     
+    <!-- 引入質感字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
@@ -20,7 +21,6 @@
             --bg-light: #f8f9fa;
             --white: #ffffff;
             --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
-            --shadow-hover: 0 15px 40px rgba(176, 31, 36, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,101 +34,97 @@
 
         /* --- 手機版面容器 --- */
         .container {
-            max-width: 480px;
+            max-width: 640px; /* 已加寬至 640px，閱讀更舒適 */
             margin: 0 auto;
             background-color: var(--white);
             min-height: 100vh;
             box-shadow: 0 0 40px rgba(0,0,0,0.1);
             position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- Header 背景視覺 (無文字版) --- */
+        .header-bg {
+            background: linear-gradient(135deg, var(--brand-red) 0%, #8a1519 100%);
+            height: 180px; /* 調整高度以配合大頭貼 */
+            width: 100%;
+            position: relative;
             overflow: hidden;
         }
 
-        /* --- Header 視覺 --- */
-        .header {
-            background: linear-gradient(135deg, var(--brand-red) 0%, #8a1519 100%);
-            padding: 40px 20px 80px 20px;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-        }
-
-        .header-logo {
-            font-family: 'Noto Serif TC', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .header-sub {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        /* 裝飾性閃電 (CSS繪製) */
+        /* 裝飾性閃電 (背景紋理) */
         .bolt-bg {
             position: absolute;
-            top: -20px;
-            right: -10%;
-            font-size: 12rem;
-            color: rgba(255,255,255,0.05);
+            top: -30px;
+            right: -20px;
+            font-size: 15rem;
+            color: rgba(255,255,255,0.08);
             transform: rotate(15deg);
             pointer-events: none;
             font-weight: 900;
         }
         .bolt-bg::before { content: '⚡'; }
 
-        /* --- 個人檔案區 --- */
+        /* --- 個人檔案區 (核心改動) --- */
         .profile-card {
-            margin-top: -60px;
-            padding: 0 25px;
             text-align: center;
             position: relative;
             z-index: 10;
+            padding-bottom: 30px;
+            margin-top: -110px; /* 讓照片往上蓋住背景 */
         }
 
+        /* 照片區域加大 */
         .avatar-box {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 15px auto;
+            width: 220px;  /* 寬度加大 */
+            height: 220px; /* 高度加大 */
+            margin: 0 auto 20px auto;
             border-radius: 50%;
-            border: 5px solid var(--white);
+            border: 6px solid var(--white); /* 白邊加粗 */
             background-color: #ddd;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: relative;
         }
 
         .avatar-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top; /* 確保頭部在中間 */
+            object-position: top; /* 確保臉部清楚 */
         }
 
         .name-title {
             font-family: 'Noto Serif TC', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem; /* 名字加大 */
+            font-weight: 900;
             color: var(--brand-dark);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
         }
 
-        .job-title {
-            display: inline-block;
+        .company-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 0 20px;
+        }
+
+        .job-badge {
             background-color: var(--brand-red);
             color: var(--white);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
             letter-spacing: 1px;
         }
 
         .company-name {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             font-weight: 500;
         }
@@ -138,44 +134,45 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            padding: 25px;
-            margin-top: 10px;
+            padding: 0 25px 25px 25px;
         }
 
         .stat-item {
             background-color: var(--bg-light);
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
-            border-bottom: 3px solid var(--brand-red);
+            border-bottom: 4px solid var(--brand-red);
         }
 
         .stat-num {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--brand-red);
             font-family: 'Noto Serif TC', serif;
+            line-height: 1.2;
         }
 
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             margin-top: 5px;
         }
 
         /* --- 通用區塊樣式 --- */
         .section {
-            padding: 30px 25px;
-            border-bottom: 1px solid #eee;
+            padding: 35px 25px;
+            border-top: 1px solid #eee;
         }
 
         .section-title {
             font-family: 'Noto Serif TC', serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--brand-dark);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
+            font-weight: 700;
         }
 
         .section-title::before {
@@ -194,41 +191,54 @@
         }
 
         .service-item {
-            margin-bottom: 15px;
-            padding-left: 25px;
+            margin-bottom: 20px; /* 稍微增加間距 */
+            padding-left: 30px;
             position: relative;
             font-weight: 500;
             color: var(--text-primary);
+            font-size: 1.1rem; /* 字體稍微加大 */
         }
 
         .service-item::before {
             content: '⚡';
             position: absolute;
             left: 0;
+            top: 2px;
             color: var(--brand-red);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         /* --- 標籤雲 (產業與經歷) --- */
+        .tag-group {
+            margin-bottom: 25px;
+        }
+        
+        .tag-group-title {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 12px;
+            font-weight: 700;
+            display: block;
+        }
+
         .tag-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .tag {
             background-color: #fff;
             border: 1px solid #e0e0e0;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            transition: all 0.2s;
         }
         
         .tag.highlight {
-            background-color: rgba(176, 31, 36, 0.08);
-            border-color: rgba(176, 31, 36, 0.2);
+            background-color: rgba(176, 31, 36, 0.05);
+            border-color: rgba(176, 31, 36, 0.3);
             color: var(--brand-red);
             font-weight: 500;
         }
@@ -236,18 +246,26 @@
         /* --- 理念引言 --- */
         .philosophy-box {
             background-color: var(--bg-light);
-            padding: 25px;
-            margin: 20px 25px;
-            border-radius: 12px;
-            text-align: justify;
-            font-size: 0.95rem;
+            padding: 30px 25px;
+            text-align: center;
+            font-size: 1rem;
             color: #444;
-            border-left: 4px solid var(--brand-red);
+            line-height: 1.8;
+            border-top: 1px solid #eee;
+        }
+        
+        .philosophy-highlight {
+            color: var(--brand-red);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 15px;
+            font-family: 'Noto Serif TC', serif;
         }
 
         /* --- 底部按鈕區 --- */
         .footer {
-            padding: 30px 25px 50px 25px;
+            padding: 40px 25px 60px 25px;
             background-color: #fff;
             text-align: center;
         }
@@ -255,11 +273,13 @@
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
         }
 
         .btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
             padding: 16px;
             border-radius: 50px;
@@ -267,6 +287,7 @@
             font-weight: 700;
             text-align: center;
             transition: transform 0.2s;
+            font-size: 1.05rem;
         }
 
         .btn-line {
@@ -281,17 +302,17 @@
             box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
         }
         
-        .btn-email {
-            background-color: white;
-            color: var(--text-primary);
+        .btn-threads {
+            background-color: black;
+            color: white ;
             border: 2px solid #eee;
         }
 
         .btn:active { transform: scale(0.98); }
 
         .copyright {
-            margin-top: 30px;
-            font-size: 0.75rem;
+            margin-top: 40px;
+            font-size: 0.8rem;
             color: #ccc;
         }
 
@@ -300,21 +321,28 @@
 <body>
 
     <div class="container">
-        <header class="header">
+        <!-- 頂部視覺 (無文字背景) -->
+        <div class="header-bg">
             <div class="bolt-bg"></div>
-            <div class="header-logo">磊伯</div>
-            <div class="header-sub">勞資充電站｜權宇勞基顧問有限公司</div>
-        </header>
+        </div>
 
-        <section class="profile-card">
+        <!-- 個人簡歷核心 (照片加大) -->
+        <div class="profile-card">
             <div class="avatar-box">
+                <!-- 【重要】請確認您的照片檔名為 profile.jpg 並放在同一層資料夾 -->
                 <img src="profile.jpg" alt="陳晏綜經理" class="avatar-img">
             </div>
+            
             <h1 class="name-title">陳晏綜</h1>
-            <span class="job-title">經理 / 資深顧問</span>
-            <div class="company-name">權宇勞基顧問有限公司</div>
-        </section>
+            
+            <div class="company-info">
+                <span class="company-name">權宇勞基顧問有限公司</span>
+                <span class="job-badge">經理 / 資深顧問</span>
+                
+            </div>
+        </div>
 
+        <!-- 亮點數據 -->
         <div class="stats-grid">
             <div class="stat-item">
                 <div class="stat-num">15+</div>
@@ -326,55 +354,86 @@
             </div>
         </div>
 
+        <!-- 核心理念 (調整至中間更有說服力) -->
         <div class="philosophy-box">
-            擅長以勞動法令結合實務，幫助企業從日常管理開始降低違法風險，減少勞資爭議，降低溝通及管理成本。
-            <br><br>
-            <strong>「推廣勞動法令普及、增加企業法遵意識、共創勞資雙贏！」</strong>
+            <p>擅長以勞動法令結合實務，幫助企業從日常管理開始降低違法風險，減少勞資爭議，降低溝通及管理成本。</p>
+            <span class="philosophy-highlight">「推廣勞動法令普及、增加企業法遵意識、共創勞資雙贏！」</span>
         </div>
 
+        <!-- 服務與授課內容 -->
         <section class="section">
             <h2 class="section-title">專業授課與顧問範疇</h2>
             <ul class="service-list">
-                <li class="service-item">職業災害風險與企業責任</li>
-                <li class="service-item">勞資爭議處理實務 (預防與應對)</li>
-                <li class="service-item">勞工退休制度與勞保老年給付</li>
-                <li class="service-item">職場性騷擾及不法侵害防治</li>
-                <li class="service-item">常見勞動法令全貌與實務解析</li>
+                <li class="service-item">勞動法令與制度健檢</li>
+                <li class="service-item">勞動契約、工作規則等制度建制</li>
+                <li class="service-item">勞資爭議處理</li>
+                <li class="service-item">勞動檢查因應</li>
+                <li class="service-item">勞動法令與實務講座課程</li>
             </ul>
         </section>
 
+        <!-- 資歷與客戶 -->
         <section class="section">
-            <h2 class="section-title">重要資歷與服務客戶</h2>
+            <h2 class="section-title">資歷與服務經驗</h2>
             
-            <p style="font-size:0.9rem; color:#666; margin-bottom:10px; font-weight:700;">專業資格：</p>
-            <div class="tag-cloud" style="margin-bottom: 20px;">
-                <span class="tag highlight">BNI 震道分會第一、二屆主席</span>
-                <span class="tag highlight">美國 FLMI 壽險管理師</span>
-                <span class="tag">中華民國勞資合作促進會講師</span>
-                <span class="tag">臺中市特定工廠促進會顧問</span>
+            <div class="tag-group">
+                <span class="tag-group-title">專業資格與歷練</span>
+                <div class="tag-cloud">
+                    <span class="tag highlight">BNI 震道分會第一、二屆主席</span>
+                    <span class="tag highlight">美國 FLMI 壽險管理師</span>
+                    <span class="tag">中華民國勞資合作促進會講師</span>
+                    <span class="tag">臺中市特定工廠促進會顧問</span>
+                    <span class="tag">壽險公司團險部資深輔導訓練專員</span>
+                    <span class="tag">GoldFM 城市廣播假日新聞編播</span>
+                </div>
             </div>
 
-            <p style="font-size:0.9rem; color:#666; margin-bottom:10px; font-weight:700;">服務產業經驗：</p>
-            <div class="tag-cloud">
-                <span class="tag">建設營造業</span>
-                <span class="tag">製造業</span>
-                <span class="tag">醫美診所</span>
-                <span class="tag">長照業</span>
-                <span class="tag">餐飲零售業</span>
-                <span class="tag">室內設計</span>
+            <div class="tag-group">
+                <span class="tag-group-title">重要授課經歷</span>
+                <div class="tag-cloud">
+                    <span class="tag">三商美邦人壽</span>
+                    <span class="tag">遠雄人壽</span>
+                    <span class="tag">台灣人壽</span>
+                    <span class="tag">公勝保險經紀人</span>
+                    <span class="tag">威盛保險經紀人</span>
+                    <span class="tag">高成保險經紀人</span>
+                    <span class="tag">台朔重工麥寮廠工會</span>
+                    <span class="tag">雲林縣總工會</span>
+                    <span class="tag">雲林縣廚師職業工會</span>
+                    <span class="tag">臺中市北區扶輪社</span>
+                    <span class="tag">臺中市惠來扶輪社</span>
+                    <span class="tag">嘉義市企業經理協進會</span>
+                    <span class="tag">臺灣連鎖加盟促進協會中區分會</span>
+                </div>
+            </div>
+
+            <div class="tag-group">
+                <span class="tag-group-title">服務產業經驗</span>
+                <div class="tag-cloud">
+                    <span class="tag">建設營造業</span>
+                    <span class="tag">製造業</span>
+                    <span class="tag">買賣業</span>
+                    <span class="tag">醫美診所</span>
+                    <span class="tag">居家照服業</span>
+                    <span class="tag">餐飲零售業</span>
+                    <span class="tag">室內設計</span>
+                    <span class="tag highlight">服務中客戶70家以上 </span>
+                </div>
             </div>
         </section>
 
+        <!-- 底部聯絡區 -->
         <footer class="footer">
-            <h3 style="font-size:1.1rem; margin-bottom:20px; color:#333;">立即預約諮詢</h3>
+            <h3 style="font-size:1.2rem; margin-bottom:25px; color:#333; font-weight:700;">立即預約諮詢</h3>
             <div class="btn-group">
-                <a href="https://line.me/ti/p/你的ID" class="btn btn-line" target="_blank">LINE 加好友</a>
-                <a href="https://www.facebook.com/你的粉專ID" class="btn btn-fb" target="_blank">磊伯勞資充電站 FB</a>
-                <a href="mailto:your-email@example.com" class="btn btn-email">Email 聯繫</a>
+                <!-- 請修改以下連結 -->
+                <a href="https://lin.ee/p9fFjdA" class="btn btn-line" target="_blank">LINE@ 加好友</a>
+                <a href="https://www.facebook.com/lrstation56" class="btn btn-fb" target="_blank">磊伯勞資充電站 FB</a>
+                <a href="https://www.threads.com/@lr.station" class="btn btn-threads">磊伯勞資充電站 threads</a>
             </div>
             
             <div class="copyright">
-                © 2024 磊伯勞資充電站｜權宇勞基顧問有限公司<br>
+                © 2026 磊伯勞資充電站｜權宇勞基顧問有限公司<br>
                 All Rights Reserved.
             </div>
         </footer>
