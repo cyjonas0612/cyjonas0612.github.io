@@ -351,7 +351,7 @@
                 <div class="stat-label">講師經驗 (年)</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num">7+</div>
+                <div class="stat-num" id="consulting-years">7+</div>
                 <div class="stat-label">顧問執業 (年)</div>
             </div>
         </div>
@@ -442,6 +442,34 @@
         </footer>
 
     </div>
+
+     <!-- 加入自動計算年資的腳本 -->
+    <script>
+        function calculateConsultingYears() {
+            // 設定起算日：2018年1月1日
+            const startDate = new Date('2018-01-01');
+            const today = new Date();
+            
+            // 初步計算年份差
+            let years = today.getFullYear() - startDate.getFullYear();
+            
+            // 如果今年的 3月15日 還沒到，表示還不滿一整年，需要扣除 1 年
+            if (today.getMonth() < startDate.getMonth() || 
+               (today.getMonth() === startDate.getMonth() && today.getDate() < startDate.getDate())) {
+                years--;
+            }
+            
+            // 將計算結果更新到畫面上
+            const element = document.getElementById('consulting-years');
+            if (element) {
+                element.innerText = years + '+';
+            }
+        }
+        
+        // 網頁載入時立刻執行計算
+        calculateConsultingYears();
+    </script>
+    
 </body>
 </html>
 
