@@ -11,8 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
     
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-
     <style>
         /* --- 變數系統 --- */
         :root {
@@ -358,8 +356,7 @@
 
         <!-- 核心理念 (調整至中間更有說服力) -->
         <div class="philosophy-box">
-            <p>擅長以勞動法令結合實務，幫助企業從日常管理開始<br>
-                把風險降到最低，讓爭議不再發生，管理及溝通更省力。</p>
+            <p>擅長以勞動法令結合實務，幫助企業從日常管理開始降低違法風險，減少勞資爭議，降低溝通及管理成本。</p>
             <span class="philosophy-highlight">「推廣勞動法令普及、增加企業法遵意識、共創勞資雙贏！」</span>
         </div>
 
@@ -382,11 +379,11 @@
             <div class="tag-group">
                 <span class="tag-group-title">專業資格與歷練</span>
                 <div class="tag-cloud">
-                    <span class="tag highlight">壽險公司團險部資深輔導訓練專員</span>
-                    <span class="tag">美國壽險學會 FLMI 壽險管理師</span>
                     <span class="tag highlight">BNI 震道分會第一、二屆主席</span>
+                    <span class="tag highlight">美國 FLMI 壽險管理師</span>
                     <span class="tag">中華民國勞資合作促進會講師</span>
-                    <span class="tag highlight">臺中市特定工廠促進會顧問</span>
+                    <span class="tag">臺中市特定工廠促進會顧問</span>
+                    <span class="tag">壽險公司團險部資深輔導訓練專員</span>
                     <span class="tag">GoldFM 城市廣播假日新聞編播</span>
                 </div>
             </div>
@@ -443,11 +440,15 @@
 
     </div>
 
-     <!-- 加入自動計算年資的腳本 -->
+    <!-- 1. 引入 LINE LIFF SDK -->
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+    <!-- 2. 加入 LIFF 初始化與自動計算年資的腳本 -->
     <script>
+        // 計算年資函數
         function calculateConsultingYears() {
             // 設定起算日：2018年1月1日
-            const startDate = new Date('2018-03-15');
+            const startDate = new Date('2018-01-01');
             const today = new Date();
             
             // 初步計算年份差
@@ -466,14 +467,33 @@
             }
         }
         
-        // 網頁載入時立刻執行計算
-        calculateConsultingYears();
+        // LIFF 初始化函數
+        async function initializeLiff() {
+            const liffId = "2008056731-PukqEaYg"; // 【重要提醒】請替換為真實的 LIFF ID
+            
+            // 加入檢查機制，避免因未填寫真實 ID 而導致的錯誤
+            if (liffId === "YOUR_LIFF_ID" || !liffId) {
+                console.warn("⚠️ 尚未設定真實的 LIFF ID，因此略過 LIFF 初始化。若您已申請完畢，請替換 'YOUR_LIFF_ID'。");
+                return; 
+            }
+
+            try {
+                await liff.init({ liffId: liffId });
+                console.log("LIFF 初始化成功");
+                
+                // 如果之後需要抓取使用者資料，或判斷是否在 LINE 內開啟，可在此擴充：
+                // if (liff.isLoggedIn()) { ... }
+                
+            } catch (err) {
+                console.error("LIFF 初始化失敗", err);
+            }
+        }
+
+        // 當網頁準備好時，立刻執行年資計算與 LIFF 初始化
+        document.addEventListener("DOMContentLoaded", () => {
+            calculateConsultingYears();
+            initializeLiff();
+        });
     </script>
-    
 </body>
 </html>
-
-
-
-
-
