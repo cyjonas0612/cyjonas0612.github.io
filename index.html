@@ -6,6 +6,12 @@
     <title>陳晏綜｜權宇勞基顧問有限公司</title>
     <meta name="description" content="權宇勞基顧問有限公司 陳晏綜經理 - 勞資爭議預防、職業災害風險管理、企業法遵顧問。">
     
+    <!-- 允許網頁以全螢幕 App 模式運行 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#b01f24">
+    
     <!-- 引入質感字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +40,7 @@
 
         /* --- 手機版面容器 --- */
         .container {
-            max-width: 640px; /* 已加寬至 640px，閱讀更舒適 */
+            max-width: 640px; 
             margin: 0 auto;
             background-color: var(--white);
             min-height: 100vh;
@@ -43,10 +49,10 @@
             overflow-x: hidden;
         }
 
-        /* --- Header 背景視覺 (無文字版) --- */
+        /* --- Header 背景視覺 --- */
         .header-bg {
             background: linear-gradient(135deg, var(--brand-red) 0%, #8a1519 100%);
-            height: 180px; /* 調整高度以配合大頭貼 */
+            height: 180px; 
             width: 100%;
             position: relative;
             overflow: hidden;
@@ -65,22 +71,22 @@
         }
         .bolt-bg::before { content: '⚡'; }
 
-        /* --- 個人檔案區 (核心改動) --- */
+        /* --- 個人檔案區 --- */
         .profile-card {
             text-align: center;
             position: relative;
             z-index: 10;
             padding-bottom: 30px;
-            margin-top: -110px; /* 讓照片往上蓋住背景 */
+            margin-top: -110px; 
         }
 
         /* 照片區域加大 */
         .avatar-box {
-            width: 220px;  /* 寬度加大 */
-            height: 220px; /* 高度加大 */
+            width: 220px;  
+            height: 220px; 
             margin: 0 auto 20px auto;
             border-radius: 50%;
-            border: 6px solid var(--white); /* 白邊加粗 */
+            border: 6px solid var(--white); 
             background-color: #ddd;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
@@ -91,12 +97,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top; /* 確保臉部清楚 */
+            object-position: top; 
         }
 
         .name-title {
             font-family: 'Noto Serif TC', serif;
-            font-size: 2rem; /* 名字加大 */
+            font-size: 2rem; 
             font-weight: 900;
             color: var(--brand-dark);
             margin-bottom: 8px;
@@ -191,12 +197,12 @@
         }
 
         .service-item {
-            margin-bottom: 20px; /* 稍微增加間距 */
+            margin-bottom: 20px; 
             padding-left: 30px;
             position: relative;
             font-weight: 500;
             color: var(--text-primary);
-            font-size: 1.1rem; /* 字體稍微加大 */
+            font-size: 1.1rem; 
         }
 
         .service-item::before {
@@ -316,18 +322,37 @@
             color: #ccc;
         }
 
+        /* =========================================
+           捲動動畫特效 (Scroll Reveal CSS)
+           ========================================= */
+        .reveal {
+            opacity: 0; /* 預設完全透明 */
+            transform: translateY(40px); /* 預設往下偏移 40px */
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 動畫速度與曲線 */
+        }
+
+        .reveal.active {
+            opacity: 1; /* 恢復不透明 */
+            transform: translateY(0); /* 回到原本位置 */
+        }
+        
+        /* 設定不同的延遲時間，讓元素有接連出現的層次感 */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 頂部視覺 (無文字背景) -->
+        <!-- 頂部視覺 -->
         <div class="header-bg">
             <div class="bolt-bg"></div>
         </div>
 
-        <!-- 個人簡歷核心 (照片加大) -->
-        <div class="profile-card">
+        <!-- 個人簡歷核心 (加入 reveal 類別，一進網頁就會滑出) -->
+        <div class="profile-card reveal active">
             <div class="avatar-box">
                 <!-- 【重要】請確認您的照片檔名為 profile.jpg 並放在同一層資料夾 -->
                 <img src="profile.jpg" alt="陳晏綜經理" class="avatar-img">
@@ -338,45 +363,44 @@
             <div class="company-info">
                 <span class="company-name">權宇勞基顧問有限公司</span>
                 <span class="job-badge">經理 / 資深顧問</span>
-                
             </div>
         </div>
 
         <!-- 亮點數據 -->
         <div class="stats-grid">
-            <div class="stat-item">
+            <div class="stat-item reveal delay-1">
                 <div class="stat-num">15+</div>
                 <div class="stat-label">講師經驗 (年)</div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item reveal delay-2">
                 <div class="stat-num" id="consulting-years">7+</div>
                 <div class="stat-label">顧問執業 (年)</div>
             </div>
         </div>
 
-        <!-- 核心理念 (調整至中間更有說服力) -->
-        <div class="philosophy-box">
+        <!-- 核心理念 -->
+        <div class="philosophy-box reveal delay-3">
             <p>擅長以勞動法令結合實務，幫助企業從日常管理開始降低違法風險，減少勞資爭議，降低溝通及管理成本。</p>
             <span class="philosophy-highlight">「推廣勞動法令普及、增加企業法遵意識、共創勞資雙贏！」</span>
         </div>
 
         <!-- 服務與授課內容 -->
         <section class="section">
-            <h2 class="section-title">專業授課與顧問範疇</h2>
+            <h2 class="section-title reveal">專業授課與顧問範疇</h2>
             <ul class="service-list">
-                <li class="service-item">勞動法令與制度健檢</li>
-                <li class="service-item">勞動契約、工作規則等制度建制</li>
-                <li class="service-item">勞資爭議處理</li>
-                <li class="service-item">勞動檢查因應</li>
-                <li class="service-item">勞動法令與實務講座課程</li>
+                <li class="service-item reveal delay-1">勞動法令與制度健檢</li>
+                <li class="service-item reveal delay-1">勞動契約、工作規則等制度建制</li>
+                <li class="service-item reveal delay-2">勞資爭議處理</li>
+                <li class="service-item reveal delay-2">勞動檢查因應</li>
+                <li class="service-item reveal delay-3">勞動法令與實務講座課程</li>
             </ul>
         </section>
 
         <!-- 資歷與客戶 -->
         <section class="section">
-            <h2 class="section-title">資歷與服務經驗</h2>
+            <h2 class="section-title reveal">資歷與服務經驗</h2>
             
-            <div class="tag-group">
+            <div class="tag-group reveal">
                 <span class="tag-group-title">專業資格與歷練</span>
                 <div class="tag-cloud">
                     <span class="tag highlight">BNI 震道分會第一、二屆主席</span>
@@ -388,7 +412,7 @@
                 </div>
             </div>
 
-            <div class="tag-group">
+            <div class="tag-group reveal delay-1">
                 <span class="tag-group-title">重要授課經歷</span>
                 <div class="tag-cloud">
                     <span class="tag">三商美邦人壽</span>
@@ -407,7 +431,7 @@
                 </div>
             </div>
 
-            <div class="tag-group">
+            <div class="tag-group reveal delay-2">
                 <span class="tag-group-title">服務產業經驗</span>
                 <div class="tag-cloud">
                     <span class="tag">建設營造業</span>
@@ -417,13 +441,13 @@
                     <span class="tag">居家照服業</span>
                     <span class="tag">餐飲零售業</span>
                     <span class="tag">室內設計</span>
-                    <span class="tag highlight">服務中客戶70家以上 </span>
+                    <span class="tag highlight">服務中事業單位70間以上 </span>
                 </div>
             </div>
         </section>
 
         <!-- 底部聯絡區 -->
-        <footer class="footer">
+        <footer class="footer reveal">
             <h3 style="font-size:1.2rem; margin-bottom:25px; color:#333; font-weight:700;">立即預約諮詢</h3>
             <div class="btn-group">
                 <!-- 請修改以下連結 -->
@@ -433,7 +457,7 @@
             </div>
             
             <div class="copyright">
-                © 2026 磊伯勞資充電站｜權宇勞基顧問有限公司 1.1<br>
+                © 2026 磊伯勞資充電站｜權宇勞基顧問有限公司<br>
                 All Rights Reserved.
             </div>
         </footer>
@@ -443,55 +467,72 @@
     <!-- 1. 引入 LINE LIFF SDK -->
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
-    <!-- 2. 加入 LIFF 初始化與自動計算年資的腳本 -->
+    <!-- 2. 加入 各種互動腳本 -->
     <script>
-        // 計算年資函數
+        // --- 1. 計算年資函數 ---
         function calculateConsultingYears() {
-            // 設定起算日：2018年3月15日
             const startDate = new Date('2018-03-15');
             const today = new Date();
-            
-            // 初步計算年份差
             let years = today.getFullYear() - startDate.getFullYear();
             
-            // 如果今年的 3月15日 還沒到，表示還不滿一整年，需要扣除 1 年
             if (today.getMonth() < startDate.getMonth() || 
                (today.getMonth() === startDate.getMonth() && today.getDate() < startDate.getDate())) {
                 years--;
             }
             
-            // 將計算結果更新到畫面上
             const element = document.getElementById('consulting-years');
             if (element) {
                 element.innerText = years + '+';
             }
         }
         
-        // LIFF 初始化函數
-        async function initializeLiff() {
-            const liffId = "2009266406-AIRzbqhE"; // 【重要提醒】請替換為真實的 LIFF ID
+        // --- 2. LIFF 初始化函數 ---
+          async function initializeLiff() {
+            const liffId = "2009266406-AIRzbqhE"; 
             
-            // 加入檢查機制，避免因未填寫真實 ID 而導致的錯誤
             if (liffId === "YOUR_LIFF_ID" || !liffId) {
-                console.warn("⚠️ 尚未設定真實的 LIFF ID，因此略過 LIFF 初始化。若您已申請完畢，請替換 'YOUR_LIFF_ID'。");
+                console.warn("⚠️ 尚未設定真實的 LIFF ID。");
                 return; 
             }
-
+       
             try {
                 await liff.init({ liffId: liffId });
                 console.log("LIFF 初始化成功");
-                
-                // 如果之後需要抓取使用者資料，或判斷是否在 LINE 內開啟，可在此擴充：
-                // if (liff.isLoggedIn()) { ... }
-                
             } catch (err) {
                 console.error("LIFF 初始化失敗", err);
             }
         }
 
-        // 當網頁準備好時，立刻執行年資計算與 LIFF 初始化
+        // --- 3. 捲動浮現動畫 (Intersection Observer) ---
+        function initScrollAnimations() {
+            // 設定監視器，當元素進入畫面 10% 時就觸發
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // 如果監視的區塊進入了畫面
+                    if (entry.isIntersecting) {
+                        // 加上 active 類別，CSS 的動畫就會啟動
+                        entry.target.classList.add('active');
+                        // 動畫播完一次後就不再重複監視
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // 找出網頁裡所有帶有 'reveal' 類別的元素，讓監視器開始盯著它們
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        }
+
+        // --- 4. 網頁載入時立刻執行所有腳本 ---
         document.addEventListener("DOMContentLoaded", () => {
             calculateConsultingYears();
+            initScrollAnimations();
             initializeLiff();
         });
     </script>
